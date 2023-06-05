@@ -2,6 +2,9 @@ const { URLMODEL } = require("../models/urlModel");
 const validUrl = require("valid-url");
 const shortid = require("shortid");
 const { isValid } = require("../utils/index");
+var validator = require('validator');
+const {trim} =require("../utils/index")
+
 
 //=============================REDIS   CONNECT===============================================
 const redis = require('redis');
@@ -27,12 +30,17 @@ const GET_ASYNC = promisify(redisClient.GET).bind(redisClient);
 //POST /url/shorten
 const shorten = async function (req, res) {
   try {
-    const { longUrl } = req.body;
+    let { longUrl } = req.body;
+  longUrl=trim(longUrl)
+
     if (!isValid(longUrl)) {
       return res.status(400).send({ status: false, message: "longUrl must be a string" });
     }
     if (!validUrl.isUri(longUrl)) {
       return res.status(400).send({ error: 'Invalid URL' });
+    }
+    if (!validator.isURL(longUrl)) {
+      return res.status(400).send({status: false, message:'in valalid Domain' });
     }
 
 

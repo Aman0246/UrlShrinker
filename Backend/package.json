@@ -21,6 +21,7 @@
     "morgan": "^1.10.0",
     "node-cache": "^5.1.2",
     "nodemon": "^2.0.22",
+    "react-icons": "^4.9.0",
     "redirect": "^0.2.0",
     "redis": "^3.0.0",
     "shortid": "^2.2.16",

@@ -12,14 +12,7 @@ const urlSchema = new mongoose.Schema({
   longUrl: {
     type: String,
     required: true,
-    validate: {
-      validator: function(value) {
-        if (!validator.isURL(value)) {
-            throw new Error('Invalid URL');
-          }
-      },
-      message: 'Invalid URL'
-    }
+    trime:true,
   },
   shortUrl: {
     type: String,

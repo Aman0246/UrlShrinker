@@ -17,8 +17,11 @@ const isValidPassword = (password) => {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,}$/;
     return passwordRegex.test(password);
 };
+const trim=(longURL)=>{
+    return  longURL.trim()
+}
 
 
-module.exports= {isValid,validString,validateEmail,isValidPassword}
+module.exports= {isValid,validString,validateEmail,isValidPassword,trim}
 
 
