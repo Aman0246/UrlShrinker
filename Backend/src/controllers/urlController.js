@@ -38,7 +38,7 @@ const shorten = async function (req, res) {
     }
     longUrl=trim(longUrl)
     if (!validUrl.isUri(longUrl)) {
-      return res.status(400).send({ error: 'Invalid URL' });
+      return res.status(400).send({status:false ,message: 'Invalid URL' });
     }
     if (!validator.isURL(longUrl)) {
       return res.status(400).send({status: false, message:'in valalid Domain' });
