@@ -31,11 +31,12 @@ const GET_ASYNC = promisify(redisClient.GET).bind(redisClient);
 const shorten = async function (req, res) {
   try {
     let { longUrl } = req.body;
-  longUrl=trim(longUrl)
+    if(!Object.keys(req.body).length>0) return res.status(400).send({status:false ,message:"Data not found in body"})
 
     if (!isValid(longUrl)) {
       return res.status(400).send({ status: false, message: "longUrl must be a string" });
     }
+    longUrl=trim(longUrl)
     if (!validUrl.isUri(longUrl)) {
       return res.status(400).send({ error: 'Invalid URL' });
     }
@@ -90,6 +91,7 @@ const getURL = async (req, res) => {
 
     let cachedUrl = await GET_ASYNC(urlCode);
     if (cachedUrl) {
+      console.log("cach data")
       const { longUrl } = JSON.parse(cachedUrl);
       return res.redirect(longUrl);
     }
