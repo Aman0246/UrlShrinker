@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from "axios"
 import home from "./home.css"
 import validUrl from "valid-url";
+import validator from "validator"
 import toast from 'react-hot-toast';
 import { BsFillClipboardFill } from 'react-icons/bs';
 import { BsFillClipboardCheckFill } from 'react-icons/bs';
@@ -24,6 +25,10 @@ export default function Home() {
     e.preventDefault()
     if(url!=null){
       seticon(true)
+      if (!validator.isURL(url)) {
+     return   toast.error("in valalid Domain")
+
+      }
       if(validUrl.isWebUri(url)){
     let res=await axios.post("/url/shorten",{longUrl:url})
     setshow(res.data.data.shortUrl)

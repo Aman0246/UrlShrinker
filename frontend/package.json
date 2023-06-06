@@ -13,6 +13,7 @@
     "react-icons": "^4.9.0",
     "react-scripts": "5.0.1",
     "valid-url": "^1.0.9",
+    "validator": "^13.9.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

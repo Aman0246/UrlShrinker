@@ -6,7 +6,7 @@ var validator = require('validator');
 const {trim} =require("../utils/index")
 
 
-//=============================REDIS  CONNECT===============================================
+//=============================REDIS CONNECT===============================================
 const redis = require('redis');
 const { promisify } = require("util");
 const { response } = require("express");
@@ -36,12 +36,13 @@ const shorten = async function (req, res) {
     if (!isValid(longUrl)) {
       return res.status(400).send({ status: false, message: "longUrl must be a string" });
     }
+  
+    if (!validator.isURL(longUrl)) {
+      return res.status(400).send({status: false, message:'in valalid Domain' });
+    }
     longUrl=trim(longUrl)
     if (!validUrl.isUri(longUrl)) {
       return res.status(400).send({status:false ,message: 'Invalid URL' });
-    }
-    if (!validator.isURL(longUrl)) {
-      return res.status(400).send({status: false, message:'in valalid Domain' });
     }
 
 
@@ -78,7 +79,7 @@ const shorten = async function (req, res) {
     // Cache the URL for 24 hours                                  , 'EX', 24 * 60 * 60
     await SET_ASYNC(longUrl, JSON.stringify({ urlCode:urlCode.toLowerCase(), shortUrl:shortUrl }));  
 
-    res.status(201).send({ status: true, data:createDb });
+    res.status(201).send({ status: true,message: "Already available in db and caches", data:createDb });
   } catch (error) {
     return res.status(500).send({ status: false, message: error.message });
   }
