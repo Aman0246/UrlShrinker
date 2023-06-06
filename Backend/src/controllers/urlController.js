@@ -50,7 +50,7 @@ const shorten = async function (req, res) {
     if (cacheUrl) {
       // console.log({cachs:cacheUrl})
       let data=JSON.parse(cacheUrl)//for taking output in readable
-      return res.status(201).send({ status: true, data:data });
+      return res.status(201).send({ status: true, message: "Already available in caches", data:data });
     }
 
     // Check if the URL already exists in the database=====================================================
@@ -60,7 +60,7 @@ const shorten = async function (req, res) {
       // Cache the URL for 24 hours
       let setCaches= await SET_ASYNC(longUrl, JSON.stringify({ urlCode: url.urlCode.toLowerCase(), shortUrl: url.shortUrl.toLowerCase() }), 'EX', 24 * 60 * 60);
       let data=JSON.parse(setCaches)//for taking output in readable
-      return res.status(201).send({ status: true,data:data });
+      return res.status(201).send({ status: true, message: "Already available in db Now in caches",data:data });
     }
 
     const urlCode = shortid.generate();
