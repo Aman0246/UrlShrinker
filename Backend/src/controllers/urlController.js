@@ -6,7 +6,7 @@ var validator = require('validator');
 const {trim} =require("../utils/index")
 
 
-//=============================REDIS   CONNECT===============================================
+//=============================REDIS  CONNECT===============================================
 const redis = require('redis');
 const { promisify } = require("util");
 const { response } = require("express");
