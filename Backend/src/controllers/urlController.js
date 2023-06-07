@@ -9,7 +9,7 @@ const {trim} =require("../utils/index")
 //=============================REDIS CONNECT===============================================
 const redis = require('redis');
 const { promisify } = require("util");
-const { response } = require("express");
+
 
 const redisClient = redis.createClient(
   14710,
@@ -66,9 +66,6 @@ const shorten = async function (req, res) {
 
     const urlCode = shortid.generate();
     const shortUrl = `http://localhost:7000/${urlCode.toLowerCase()}`;
-  
-
-
     // Create a new URL document and save it to the database
      let createDb = await URLMODEL.create({
       urlCode:urlCode.toLowerCase(),

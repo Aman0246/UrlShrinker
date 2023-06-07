@@ -44,7 +44,7 @@ setshow(null)
 
   return (
     <div className='flex justify-center items-center flex-col'>
- <div className='p-[2rem]  font-bold text-[4rem]' >Shrink Your Url </div>
+ <div className='p-[2rem]  font-bold text-[4rem] bg-gradient-to-r mt-10 rounded-3xl from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500' >Shrink Your Url </div>
    <div className='flex flex-col  justify-center  p-[1rem] items-center w-full ' >
      <form  onSubmit={handleGenerate}  className=' w-3/5 flex items-center  gap-3 justify-between '>
                 <AiOutlineLink className='absolute' />
@@ -55,7 +55,7 @@ setshow(null)
     {show?(<form className=' w-3/5 flex items-center  gap-3 justify-between ' action="">
 
        <input type="text"  onClick={()=>window.open(show)} value={show} className='w-full mt-[1rem] flex px-[2rem] hover:underline cursor-pointer rounded-lg py-[1rem]'/>
-       <span onClick={clipboard} className='relative left-'> {icon?(<span className=''><BsFillClipboardFill size={25}/></span>):(<span><BsFillClipboardCheckFill color='Green' size={25}/></span>)}</span>
+       <span onClick={clipboard} className='relative left-'> {icon?(<span className=''><BsFillClipboardFill color='black' size={25}/></span>):(<span><BsFillClipboardCheckFill color='LightGreen' size={25}/></span>)}</span>
           </form>):("")}
     </div>
    </div>

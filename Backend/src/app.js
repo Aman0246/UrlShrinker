@@ -18,3 +18,4 @@ app.use(express.urlencoded({extended : true}))
 app.use('/',routes)
 
 module.exports = app
+

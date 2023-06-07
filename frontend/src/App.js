@@ -2,7 +2,7 @@ import Home from './Pages/Home';
 import './App.css';
 //===========================================
 import axios from "axios"
-axios.defaults.baseURL="http://127.0.0.1:7000"
+axios.defaults.baseURL="https://urlshortner-aman.onrender.com"
 axios.defaults.withCredentials=true;
 
 
