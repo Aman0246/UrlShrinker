@@ -3,7 +3,7 @@ const app = express()
 var cors = require('cors')
 app.use(cors({
     credentials:true,
-    origin:"http://localhost:3000"  
+    origin:"https://url-shrinker-adnc.vercel.app/"  
 }))
 
 const routes = require('./routes/route.js')
