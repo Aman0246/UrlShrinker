@@ -4,7 +4,7 @@ var cors = require('cors')
 app.use( res.header("Access-Control-Allow-Headers", "https://urlshortner-aman.onrender.com"))
 app.use(cors({
     credentials:true,
-    origin:"https://url-shrinker-adnc.vercel.app"  
+    origin:"http://localhost:3000"  
 }))
 
 const routes = require('./routes/route.js')
