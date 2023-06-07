@@ -1,7 +1,9 @@
 const express  = require('express')
+const  {a}=require("./middlewares/authMiddleware")
 const app = express()
 var cors = require('cors')
-app.use( res.header("Access-Control-Allow-Headers", "https://url-shrinker-adnc.vercel.app"))
+
+app.use(a)
 app.use(cors({
     credentials:true,
     origin:"https://url-shrinker-adnc.vercel.app"  
