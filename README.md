@@ -1,4 +1,5 @@
 # URL Shortener
+Link=>https://url-shrinker-adnc.vercel.app/
 
 This project is a URL shortener that closely resembles the approach utilized by renowned URL shortening platform, TinyURL. It incorporates Redis server for caching, which significantly enhances the request-response time.
 
